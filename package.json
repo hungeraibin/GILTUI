@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/hungeraibin/GULU/issues"
   },
-  "homepage": "https://github.com/hungeraibin/GULU#readme"
+  "homepage": "https://github.com/hungeraibin/GULU#readme",
+  "dependencies": {
+    "vue": "^2.5.21"
+  }
 }
