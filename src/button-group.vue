@@ -18,7 +18,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
   .g-button-group {
     display: inline-flex;
