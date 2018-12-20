@@ -35,14 +35,14 @@ IE 15 及以上浏览器都支持此样式。
 2. 安装 gulu
 
 ```js
-npm i --save frank-test-1-1
+npm i --save GULU
 ```
 
 3. 引入 gulu
 
 ```js
-import {Button, ButtonGroup, Icon} from 'frank-test-1-1'
-import 'frank-test-1-1/dist/index.css'
+import {Button, ButtonGroup, Icon} from 'GULU'
+import 'GULU/dist/index.css'
 
 export default {
   name: 'app',
@@ -63,5 +63,4 @@ export default {
 
 ## 贡献代码
 
-## 安装
 
