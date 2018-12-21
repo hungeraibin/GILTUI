@@ -15,13 +15,6 @@
 
     :root {
       --font-size: 14px;
-      --button-height: 32px;
-      --button-bg: white;
-      --button-active-bg: #eee;
-      --border-radius: 4px;
-      --color: #333;
-      --border-color: #999;
-      --border-color-hover: #666;
     }
 
     #app {
@@ -32,19 +25,32 @@
       font-size: var(--font-size);
     }
   </style>
+  <style>
+    .box {
+      margin: 20px;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
-    <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>
-    <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">按钮</g-button>
-    <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">按钮</g-button>
-
-    <g-button-group>
-      <g-button icon="left">上一页</g-button>
-      <g-button icon="left">更多</g-button>
-      <g-button icon="right" icon-position="right">下一页</g-button>
-    </g-button-group>
+    <div class="box">
+      <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>
+      <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">按钮</g-button>
+      <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">按钮</g-button>
+  
+      <g-button-group>
+        <g-button icon="left">上一页</g-button>
+        <g-button icon="left">更多</g-button>
+        <g-button icon="right" icon-position="right">下一页</g-button>
+      </g-button-group>
+    </div>
+    <div class="box">
+      <g-input value="disabled" disabled></g-input>
+      <g-input value="readonly" readonly></g-input>
+      <g-input value="normal"></g-input>
+      <g-input value="error" error="姓名不能少于两个字"></g-input>
+    </div>
   </div>
 
   <script src="./src/app.js"></script>
