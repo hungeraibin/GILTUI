@@ -50,6 +50,9 @@
       <g-input value="readonly" readonly></g-input>
       <g-input value="normal" @change="inputChange"></g-input>
       <g-input value="error" error="姓名不能少于两个字"></g-input>
+      <g-input v-model="message"></g-input> 
+      <!-- 语法糖 v-model: :value="message" @input="message = $event.target.value" -->
+      <span>message: {{ message }}</span>
     </div>
   </div>
 
