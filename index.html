@@ -34,17 +34,19 @@
 
 <body>
   <div id="app">
+    <!-- 按钮组件 -->
     <div class="box">
       <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>
       <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">按钮</g-button>
       <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">按钮</g-button>
-  
       <g-button-group>
         <g-button icon="left">上一页</g-button>
         <g-button icon="left">更多</g-button>
         <g-button icon="right" icon-position="right">下一页</g-button>
       </g-button-group>
     </div>
+
+    <!-- 输入框组件 -->
     <div class="box">
       <g-input value="disabled" disabled></g-input>
       <g-input value="readonly" readonly></g-input>
@@ -53,6 +55,31 @@
       <g-input v-model="message"></g-input> 
       <!-- 语法糖 v-model: :value="message" @input="message = $event.target.value" -->
       <span>message: {{ message }}</span>
+    </div>
+
+    <!-- 栅格系统组件 -->
+    <div class="box">
+      <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
+      <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="4"></g-col>
+        <g-col span="20"></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="2"></g-col>
+        <g-col span="20" offset="2"></g-col>
+      </g-row>
+      <g-row gutter="20">
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
     </div>
   </div>
 
