@@ -30,6 +30,13 @@
       margin: 20px;
     }
   </style>
+  <style>
+    .demo {
+      border: 1px solid #666;
+      min-height: 100px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -78,6 +85,18 @@
         <g-col span="22" :ipad="{span:16}" :narrow-pc="{span:20}" :pc="{span:22}" :wide-pc="{span:23}">media
         </g-col>
       </g-row>
+    </div>
+
+    <!-- 布局组件 -->
+    <div class="box">
+      <g-layout style="height: 50vh">
+        <g-sider class="demo">sider</g-sider>
+        <g-layout>
+          <g-header class="demo">header</g-header>
+          <g-content class="demo">content</g-content>
+          <g-footer class="demo">footer</g-footer>
+        </g-layout>
+      </g-layout>
     </div>
   </div>
 
