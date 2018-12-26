@@ -40,7 +40,7 @@ new Vue({
       console.log(e)
     },
     showToast() {
-      this.$toast('<strong>圣诞节快乐</strong>', {
+      this.$toast('圣诞节快乐', {
         closeButton: {
           text: 'Happy',
           callback: (toast) => {
