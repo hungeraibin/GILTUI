@@ -45,8 +45,9 @@ new Vue({
           text: 'Happy',
           callback: (toast) => {
             console.log(toast)
-          }
-        }
+          },
+        },
+        position: 'middle'
       })
     }
   }
