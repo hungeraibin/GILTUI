@@ -47,7 +47,7 @@ new Vue({
             console.log(toast)
           },
         },
-        position: 'middle'
+        position: 'bottom'
       })
     }
   }
