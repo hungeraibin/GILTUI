@@ -21,7 +21,7 @@ export default {
     },
     autoCloseDelay: {
       type: Number,
-      default: 50
+      default: 5
     },
     closeButton: {
       type: Object,
