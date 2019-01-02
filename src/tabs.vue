@@ -6,6 +6,7 @@
 
 <script>
 import Vue from 'vue'
+import { throws } from 'assert';
 
 export default {
   name: 'GuluTabs',
@@ -33,6 +34,9 @@ export default {
     }
   },
   mounted() {
+    if (this.$children.length === 0) {
+      console.warn('tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件')
+    }
     this.$children.forEach((vm) => {
       if (vm.$options.name === 'GuluTabsHead') {
         vm.$children.forEach((childVm) => {
