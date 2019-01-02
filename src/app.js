@@ -44,7 +44,7 @@ new Vue({
     loading2: true,
     loading3: false,
     message: 'v-model',
-    selectedTab: '',
+    selectedTab: 'sports',
   },
   methods: {
     inputChange(e) {
