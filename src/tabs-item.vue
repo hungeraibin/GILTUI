@@ -49,7 +49,7 @@ export default {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    padding: 0 2em;
+    padding: 0 1em;
     cursor: pointer;
     height: 100%;
     &.active {
