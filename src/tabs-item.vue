@@ -37,13 +37,14 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit('update:selected', this.name)
+      this.eventBus.$emit('update:selected', this.name, this)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  $blue: blue;
   .tabs-item {
     display: flex;
     align-items: center;
@@ -51,9 +52,8 @@ export default {
     padding: 0 2em;
     cursor: pointer;
     height: 100%;
-    border: 1px solid green;
     &.active {
-      background: red;
+      color: $blue;
     }
   }
 </style>
