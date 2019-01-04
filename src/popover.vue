@@ -57,6 +57,10 @@ export default {
         contentWrapper.style.left = left + window.scrollX + 'px'
         let { height: height2 } = triggerWrapper.getBoundingClientRect()
         contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + 'px'
+      } else if (this.position === 'right') {
+        contentWrapper.style.left = left + window.scrollX + width + 'px'
+        let { height: height2 } = triggerWrapper.getBoundingClientRect()
+        contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + 'px'
       }
 
     },
@@ -139,12 +143,27 @@ $border-radius: 4px;
       top: 50%;
     }
     &::before {
-      border-left: black;
+      border-left-color: black;
       left: 100%;
     }
     &::after {
       border-left-color: white;
       left: calc(100% - 1px);
+    }
+  }
+  &.position-right {
+    margin-left: 10px;
+    &::before, &::after {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    &::before {
+      border-right-color: black;
+      right: 100%;
+    }
+    &::after {
+      border-right-color: white;
+      right: calc(100% - 1px);
     }
   }
 }
