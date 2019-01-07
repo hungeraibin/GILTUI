@@ -20,6 +20,7 @@ import TabsPane from './tabs-pane'
 import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
+import Cascader from './cascader'
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
@@ -42,6 +43,7 @@ Vue.component('g-tabs-pane', TabsPane)
 Vue.component('g-popover', Popover)
 Vue.component('g-collapse', Collapse)
 Vue.component('g-collapse-item', CollapseItem)
+Vue.component('g-cascader', Cascader)
 
 
 new Vue({
@@ -53,6 +55,39 @@ new Vue({
     message: 'v-model',
     selectedTab: 'sports',
     selected: ['2', '1'],
+    source: [{
+      name: '浙江',
+      children: [
+        {
+          name: '杭州',
+          children: [
+            {name: '上城'},
+            {name: '下城'},
+            {name: '江干'},
+          ]
+        },
+        {
+          name: '嘉兴',
+          children: [
+            {name: '南湖'},
+            {name: '秀洲'},
+            {name: '嘉善'},
+          ]
+        },
+      ]
+    }, {
+      name: '福建',
+      children: [
+        {
+          name: '福州',
+          children: [
+            {name: '鼓楼'},
+            {name: '台江'},
+            {name: '仓山'},
+          ]
+        },
+      ]
+    }]
   },
   methods: {
     inputChange(e) {
