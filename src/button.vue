@@ -2,7 +2,7 @@
   <button class="g-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
     <g-icon class="icon" v-if="icon && !loading" :name="icon"></g-icon>
     <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
-    <div class="content">
+    <div class="g-button-content">
       <slot></slot>
     </div>
   </button>
@@ -72,11 +72,11 @@ export default {
       order: 1;
       margin-right: .1em;
     }
-    > .content {
+    > .g-button-content {
       order: 2;
     }
     &.icon-right {
-      > .content {
+      > .g-button-content {
         order: 1;
       }
       > .icon {

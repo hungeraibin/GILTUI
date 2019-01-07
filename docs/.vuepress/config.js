@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/GULU/',
   title: '轱辘UI',
   description: 'Vue UI 框架',
   themeConfig: {
@@ -17,7 +18,15 @@ module.exports = {
       },
       {
         title: '组件',
-        children: [ '/components/button.md' ]
+        children: [
+          '/components/button',
+          '/components/tabs',
+          '/components/input',
+          '/components/grid',
+          '/components/layout',
+          '/components/toast',
+          '/components/tabs',
+        ]
       }
     ]
   },
