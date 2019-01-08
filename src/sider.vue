@@ -6,8 +6,6 @@
 
 <script>
 export default {
-  name: 'GuluSider'
-}
+  name: "GuluSider"
+};
 </script>
-
-

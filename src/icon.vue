@@ -4,18 +4,16 @@
   </svg>
 </template>
 <script>
-import './svg'
+import "./svg";
 
 export default {
-  name: 'GuLuIcon',
-  props: ['name']
-}
+  name: "GuLuIcon",
+  props: ["name"]
+};
 </script>
 <style lang="scss" scoped>
-  .g-icon {
-    width: 1em;
-    height: 1em;
-  }
+.g-icon {
+  width: 1em;
+  height: 1em;
+}
 </style>
-
-

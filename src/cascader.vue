@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import CascaderItems from './cascader-items'
+import CascaderItems from "./cascader-items";
 
 export default {
-  name: 'GuluCascader',
-  components: {CascaderItems},
+  name: "GuluCascader",
+  components: { CascaderItems },
   props: {
     source: {
       type: Array
@@ -25,30 +25,28 @@ export default {
   },
   data() {
     return {
-      popoverVisible: false,
-    }
-  },
-}
+      popoverVisible: false
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "var";
-  .cascader {
-    position: relative;
-    .trigger {
-      border: 1px solid red;
-      height: 32px;
-      width: 100px;
-    }
-    .popover-wrapper {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      display: flex;
-      @extend .box-shadow;
-    }
+@import "var";
+.cascader {
+  position: relative;
+  .trigger {
+    border: 1px solid red;
+    height: 32px;
+    width: 100px;
   }
+  .popover-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    display: flex;
+    @extend .box-shadow;
+  }
+}
 </style>
-
-

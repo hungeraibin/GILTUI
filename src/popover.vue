@@ -11,69 +11,85 @@
 
 <script>
 export default {
-  name: 'GuluPopover',
+  name: "GuluPopover",
   props: {
     position: {
       type: String,
-      default: 'top',
+      default: "top",
       validator(value) {
-        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
+        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
       }
     },
     trigger: {
       type: String,
-      default: 'click',
+      default: "click",
       validator(value) {
-        return ['click', 'hover'].indexOf(value) >= 0
+        return ["click", "hover"].indexOf(value) >= 0;
       }
     }
   },
   data() {
     return {
       visible: false
-    }
+    };
   },
   mounted() {
-    if (this.trigger === 'click') {
-      this.$refs.popover.addEventListener('click', this.onClick)
+    if (this.trigger === "click") {
+      this.$refs.popover.addEventListener("click", this.onClick);
     } else {
-      this.$refs.popover.addEventListener('mouseenter', () => { this.open() })
-      this.$refs.popover.addEventListener('mouseleave', () => { this.close() })
+      this.$refs.popover.addEventListener("mouseenter", () => {
+        this.open();
+      });
+      this.$refs.popover.addEventListener("mouseleave", () => {
+        this.close();
+      });
     }
   },
   destroyed() {
-    if (this.trigger === 'click') {
-      this.$refs.popover.removeEventListener('click', this.onClick)
+    if (this.trigger === "click") {
+      this.$refs.popover.removeEventListener("click", this.onClick);
     } else {
-      this.$refs.popover.removeEventListener('mouseenter', () => { this.open() })
-      this.$refs.popover.removeEventListener('mouseleave', () => { this.close() })
+      this.$refs.popover.removeEventListener("mouseenter", () => {
+        this.open();
+      });
+      this.$refs.popover.removeEventListener("mouseleave", () => {
+        this.close();
+      });
     }
   },
   methods: {
     onClick(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
         if (this.visible === true) {
-          this.close()
+          this.close();
         } else {
-          this.open()
+          this.open();
         }
       }
     },
     open() {
-      this.visible = true
+      this.visible = true;
       this.$nextTick(() => {
-        this.positonContent()
-        document.addEventListener('click', this.onClickDocument)
-      })
+        this.positonContent();
+        document.addEventListener("click", this.onClickDocument);
+      });
     },
     positonContent() {
-      const { contentWrapper, triggerWrapper } = this.$refs
-      document.body.appendChild(contentWrapper)
-      const {width, height, top, left} = triggerWrapper.getBoundingClientRect()
-      const {height: height2} = contentWrapper.getBoundingClientRect()
+      const { contentWrapper, triggerWrapper } = this.$refs;
+      document.body.appendChild(contentWrapper);
+      const {
+        width,
+        height,
+        top,
+        left
+      } = triggerWrapper.getBoundingClientRect();
+      const { height: height2 } = contentWrapper.getBoundingClientRect();
       let positions = {
-        top: {top: top + window.scrollY, left: left + window.scrollX,},
-        bottom: {top: top + height + window.scrollY, left: left + window.scrollX},
+        top: { top: top + window.scrollY, left: left + window.scrollX },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
         left: {
           top: top + window.scrollY + (height - height2) / 2,
           left: left + window.scrollX
@@ -81,24 +97,26 @@ export default {
         right: {
           top: top + window.scrollY + (height - height2) / 2,
           left: left + window.scrollX + width
-        },
-      }
-      contentWrapper.style.left = positions[this.position].left + 'px'
-      contentWrapper.style.top = positions[this.position].top + 'px'
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument(e) {
-      if (this.$refs.popover.contains(e.target) || this.$refs.contentWrapper.contains(e.target)) {
-        return
+      if (
+        this.$refs.popover.contains(e.target) ||
+        this.$refs.contentWrapper.contains(e.target)
+      ) {
+        return;
       }
-      this.close()
+      this.close();
     },
     close() {
-      this.visible = false
-      document.removeEventListener('click', this.onClickDocument)
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
     }
-  },
-
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -113,15 +131,16 @@ $border-radius: 4px;
   position: absolute;
   border: 1px solid red;
   // box-shadow: 0 0 3px rgba(0, 0, 0, .5);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .5));
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
   background-color: white;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   max-width: 20em;
   word-break: break-all;
-  &::before, &::after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     display: block;
     border: 10px solid transparent;
     width: 0;
@@ -131,7 +150,8 @@ $border-radius: 4px;
   &.position-top {
     transform: translateY(-100%);
     margin-top: -10px;
-    &::before, &::after {
+    &::before,
+    &::after {
       left: 10px;
       border-bottom: none;
     }
@@ -146,7 +166,8 @@ $border-radius: 4px;
   }
   &.position-bottom {
     margin-top: 10px;
-    &::before, &::after {
+    &::before,
+    &::after {
       border-top: none;
       left: 10px;
     }
@@ -162,7 +183,8 @@ $border-radius: 4px;
   &.position-left {
     transform: translateX(-100%);
     margin-left: -10px;
-    &::before, &::after {
+    &::before,
+    &::after {
       transform: translateY(-50%);
       top: 50%;
       border-right: none;
@@ -178,7 +200,8 @@ $border-radius: 4px;
   }
   &.position-right {
     margin-left: 10px;
-    &::before, &::after {
+    &::before,
+    &::after {
       transform: translateY(-50%);
       top: 50%;
       border-left: none;
@@ -194,5 +217,3 @@ $border-radius: 4px;
   }
 }
 </style>
-
-

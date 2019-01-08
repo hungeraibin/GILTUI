@@ -13,22 +13,22 @@
 
 <script>
 export default {
-  name: 'GuluToast',
+  name: "GuluToast",
   props: {
     autoClose: {
       type: [Boolean, Number],
       default: 3,
       validator(value) {
-        return value === false || typeof value === 'number'
+        return value === false || typeof value === "number";
       }
     },
     closeButton: {
       type: Object,
       default() {
         return {
-          text: '关闭',
+          text: "关闭",
           callback: undefined
-        }
+        };
       }
     },
     enableHtml: {
@@ -37,118 +37,134 @@ export default {
     },
     position: {
       type: String,
-      default: 'top',
+      default: "top",
       validator(value) {
-        return ['top', 'bottom', 'middle'].indexOf(value) >= 0
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
       }
     }
   },
   mounted() {
-    this.execAutoClose()
-    this.updateStyles()
+    this.execAutoClose();
+    this.updateStyles();
   },
   computed: {
     toastClasses() {
       return {
         [`position-${this.position}`]: true
-      }
+      };
     }
   },
   methods: {
     updateStyles() {
       this.$nextTick(() => {
-        this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
-      })
+        this.$refs.line.style.height = `${
+          this.$refs.toast.getBoundingClientRect().height
+        }px`;
+      });
     },
     execAutoClose() {
       if (this.autoClose) {
         setTimeout(() => {
-          this.close()
-        }, this.autoClose * 1000)
+          this.close();
+        }, this.autoClose * 1000);
       }
     },
     close() {
-      this.$el.remove()
-      this.$emit('close')
-      this.$destroy()
+      this.$el.remove();
+      this.$emit("close");
+      this.$destroy();
     },
     onClickClose() {
-      this.close()
-      if (this.closeButton && typeof this.closeButton.callback === 'function') {
-        this.closeButton.callback(this)
+      this.close();
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback(this);
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  $font-size: 14px;
-  $toast-min-height: 40px;
-  $toast-bg: rgba(0,0,0,.75);
-  $animation-duration: 300ms;
-  @keyframes slide-up {
-    0% { opacity: 0; transform: translateY(100%); }
-    100% { opacity: 1; transform: translateY(0%); }
-  }  
-  @keyframes slide-down {
-    0% { opacity: 0; transform: translateY(-100%); }
-    100% { opacity: 1; transform: translateY(0%); }
-  }  
-  @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+$font-size: 14px;
+$toast-min-height: 40px;
+$toast-bg: rgba(0, 0, 0, 0.75);
+$animation-duration: 300ms;
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
   }
-  .wrapper {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    &.position-top {
-      top: 0;
-      .toast {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        animation: slide-down $animation-duration;
-      }
-    }
-    &.position-bottom {
-      bottom: 0;
-      .toast {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        animation: slide-up $animation-duration;
-      }
-    }
-    &.position-middle {
-      top: 50%;
-      transform: translate(-50%, -50%);
-      animation: fade-in $animation-duration;
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
-  .toast {
-    display: flex;
-    align-items: center;
-    min-height: $toast-min-height;
-    line-height: 1.8;
-    padding: 0 16px;
-    color: white;
-    font-size: $font-size;
-    background-color: $toast-bg;
-    border-radius: 4px;
-    box-shadow: 0 0 3px rgba(0,0,0,.5);
-    .message {
-      padding: 8px 0;
-    }
-    .line {
-      height: 100%;
-      border-left: 1px solid #666;
-      margin-left: 16px;
-    }
-    .close {
-      padding-left: 16px;
-      flex-shrink: 0;
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.wrapper {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  &.position-top {
+    top: 0;
+    .toast {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      animation: slide-down $animation-duration;
     }
   }
+  &.position-bottom {
+    bottom: 0;
+    .toast {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slide-up $animation-duration;
+    }
+  }
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade-in $animation-duration;
+  }
+}
+.toast {
+  display: flex;
+  align-items: center;
+  min-height: $toast-min-height;
+  line-height: 1.8;
+  padding: 0 16px;
+  color: white;
+  font-size: $font-size;
+  background-color: $toast-bg;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  .message {
+    padding: 8px 0;
+  }
+  .line {
+    height: 100%;
+    border-left: 1px solid #666;
+    margin-left: 16px;
+  }
+  .close {
+    padding-left: 16px;
+    flex-shrink: 0;
+  }
+}
 </style>
-
-

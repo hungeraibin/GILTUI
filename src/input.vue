@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import Icon from './icon'
+import Icon from "./icon";
 
 export default {
-  name: 'GuLuInput',
-  components: {Icon},
+  name: "GuLuInput",
+  components: { Icon },
   props: {
     value: {
       type: String
@@ -34,45 +34,48 @@ export default {
       type: String
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "var";
-  .wrapper {
-    display: inline-flex;
-    align-items: center;
-    font-size: $font-size;
-    > :not(:last-child) {
-      margin-right: .5em;
+@import "var";
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size;
+  > :not(:last-child) {
+    margin-right: 0.5em;
+  }
+  > input {
+    height: $input-height;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    padding: 0 8px;
+    font-size: inherit;
+    &:hover {
+      border-color: $border-color-hover;
     }
-    > input {
-      height: $input-height;
-      border: 1px solid $border-color;
-      border-radius: $border-radius;
-      padding: 0 8px;
-      font-size: inherit;
-      &:hover {
-        border-color: $border-color-hover;
-      }
-      &:focus {
-        box-shadow: inset 0 1px 3px $box-shandow-color; 
-        outline: none;
-      }
-      &[disabled], &[readonly] {
-        border-color: #bbb;
-        color: #bbb;
-        cursor: not-allowed;
-      }
+    &:focus {
+      box-shadow: inset 0 1px 3px $box-shandow-color;
+      outline: none;
     }
-    &.error {
-      > input {border-color: $red;}
-    }
-    .icon-error {
-      fill: $red;
-    }
-    .errorMessage {
-      color: $red;
+    &[disabled],
+    &[readonly] {
+      border-color: #bbb;
+      color: #bbb;
+      cursor: not-allowed;
     }
   }
+  &.error {
+    > input {
+      border-color: $red;
+    }
+  }
+  .icon-error {
+    fill: $red;
+  }
+  .errorMessage {
+    color: $red;
+  }
+}
 </style>

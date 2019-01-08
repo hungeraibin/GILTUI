@@ -6,18 +6,13 @@
 
 <script>
 export default {
-  name: 'GuluTabsBody',
-  inject: ['eventBus'],
-  created() {
-    
-  }
-}
+  name: "GuluTabsBody",
+  inject: ["eventBus"],
+  created() {}
+};
 </script>
 
 <style lang="scss" scoped>
-  .tabs-body {
-    
-  }
+.tabs-body {
+}
 </style>
-
-

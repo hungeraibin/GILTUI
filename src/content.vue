@@ -6,14 +6,12 @@
 
 <script>
 export default {
-  name: 'GuluContent',  
-}
+  name: "GuluContent"
+};
 </script>
 
 <style lang="scss" scoped>
-  .content {
-    flex-grow: 1;
-  }
+.content {
+  flex-grow: 1;
+}
 </style>
-
-

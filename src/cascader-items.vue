@@ -13,59 +13,59 @@
 </template>
 
 <script>
-  import Icon from './icon'
+import Icon from "./icon";
 
-  export default {
-    name: "GuluCascaderItems",
-    components: { Icon },
-    props: {
-      items: {  
-        type: Array,
-      },
-      height: {
-        type: String
-      }
+export default {
+  name: "GuluCascaderItems",
+  components: { Icon },
+  props: {
+    items: {
+      type: Array
     },
-    data() {
-      return {
-        leftSelected: null
+    height: {
+      type: String
+    }
+  },
+  data() {
+    return {
+      leftSelected: null
+    };
+  },
+  computed: {
+    rightItems() {
+      if (this.leftSelected && this.leftSelected.children) {
+        return this.leftSelected.children;
+      } else {
+        return null;
       }
-    },
-    computed: {
-      rightItems() {
-        if (this.leftSelected && this.leftSelected.children) {
-          return this.leftSelected.children
-        } else {
-          return null
-        }
-      } 
     }
   }
+};
 </script>
 
 <style scoped lang="scss">
-  @import "var";
-  .cascaderItems {
+@import "var";
+.cascaderItems {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100px;
+  .left {
+    height: 100%;
+    padding: 0.3em 0;
+  }
+  .right {
+    height: 100%;
+    border-left: 1px solid $border-color;
+  }
+  .label {
+    padding: 0.3em 1em;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: 100px;
-    .left {
-      height: 100%;
-      padding: .3em 0;
-    }
-    .right {
-      height: 100%;
-      border-left: 1px solid $border-color;
-    }
-    .label {
-      padding: .3em 1em;
-      display: flex;
-      align-items: center;
-      .icon {
-        margin-left: 1em;
-        transform: scale(0.5);
-      }
+    align-items: center;
+    .icon {
+      margin-left: 1em;
+      transform: scale(0.5);
     }
   }
-</style> 
+}
+</style>

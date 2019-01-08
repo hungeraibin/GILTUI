@@ -10,45 +10,43 @@
 
 <script>
 export default {
-  name: 'GuluTabsHead',
-  inject: ['eventBus'],
+  name: "GuluTabsHead",
+  inject: ["eventBus"],
   mounted() {
-    this.eventBus.$on('update:selected', (item, vm) => {
+    this.eventBus.$on("update:selected", (item, vm) => {
       // let {width, height, top, left} = vm.$el.getBoundingClientRect()
       // this.$refs.line.style.width = `${width}px`
       // this.$refs.line.style.left = `${left}px`
       // this.$refs.line.style.transform = `translateX(${left}px)`
-      this.$refs.line.style.width = `${vm.$el.clientWidth}px`
-      this.$refs.line.style.left = `${vm.$el.offsetLeft}px`
-    })
+      this.$refs.line.style.width = `${vm.$el.clientWidth}px`;
+      this.$refs.line.style.left = `${vm.$el.offsetLeft}px`;
+    });
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  $tab-height: 40px;
-  $blue: blue;
-  $border-color: #ddd;
-  .tabs-head {
-    position: relative;
-    display: flex;
-    height: $tab-height;
-    justify-content: flex-start;
-    border-bottom: 1px solid $border-color;
-    > .line {
-      position: absolute;
-      bottom: 0;
-      border-bottom: 1px solid $blue;
-      transition: all 350ms;
-    }
-    > .actions-wrapper {
-      margin-left: auto;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      padding: 0 1em;
-    }
+$tab-height: 40px;
+$blue: blue;
+$border-color: #ddd;
+.tabs-head {
+  position: relative;
+  display: flex;
+  height: $tab-height;
+  justify-content: flex-start;
+  border-bottom: 1px solid $border-color;
+  > .line {
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid $blue;
+    transition: all 350ms;
   }
+  > .actions-wrapper {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0 1em;
+  }
+}
 </style>
-
-
