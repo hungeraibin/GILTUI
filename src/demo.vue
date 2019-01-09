@@ -9,7 +9,12 @@ import Cascader from "./cascader";
 import db from "./db";
 
 function ajax(parentId = 0) {
-  return db.filter(item => item.parent_id == parentId);
+  return new Promise(success => {
+    setTimeout(() => {
+      let result = db.filter(item => item.parent_id == parentId);
+      success(result);
+    }, 2000);
+  });
 }
 
 export default {
@@ -20,8 +25,13 @@ export default {
   data() {
     return {
       selected: [],
-      source: ajax()
+      source: []
     };
+  },
+  created() {
+    ajax(0).then(result => {
+      this.source = result;
+    });
   }
 };
 </script>
