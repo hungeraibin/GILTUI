@@ -1,7 +1,7 @@
 <template>
   <div class="cascader">
     <div class="trigger" @click="popoverVisible = !popoverVisible">
-      {{ result }}
+      {{ result || '&nbsp;' }}
     </div>
     <div class="popover-wrapper" v-if="popoverVisible">
       <cascader-items :items="source" class="popover" :height="popoverHeight" :selected="selected" @update:selected="onUpdateSelected"></cascader-items>
@@ -63,6 +63,7 @@ export default {
     background: white;
     display: flex;
     @extend .box-shadow;
+    margin-top: 8px;
   }
 }
 </style>
