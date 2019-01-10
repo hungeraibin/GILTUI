@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 20px">
-    <g-cascader :source="source" :selected.sync="selected"></g-cascader>
+    <g-cascader :source="source" :selected.sync="selected" :load-data="loadData" @update:source="onUpdateSource"></g-cascader>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ function ajax(parentId = 0) {
     setTimeout(() => {
       let result = db.filter(item => item.parent_id == parentId);
       success(result);
-    }, 2000);
+    });
   });
 }
 
@@ -32,6 +32,16 @@ export default {
     ajax(0).then(result => {
       this.source = result;
     });
+  },
+  methods: {
+    loadData({ id }, updateSoure) {
+      ajax(id).then(result => {
+        updateSoure(result);
+      });
+    },
+    onUpdateSource(source) {
+      this.source = source;
+    }
   }
 };
 </script>
