@@ -12,6 +12,13 @@ function ajax(parentId = 0) {
   return new Promise(success => {
     setTimeout(() => {
       let result = db.filter(item => item.parent_id == parentId);
+      result.forEach(node => {
+        if (db.filter(item => item.parent_id === node.id).length > 0) {
+          node.isLeaf = false;
+        } else {
+          node.isLeaf = true;
+        }
+      });
       success(result);
     });
   });
