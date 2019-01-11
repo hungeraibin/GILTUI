@@ -5,11 +5,18 @@
         <span class="name">
           {{ item.name }}
         </span>
-        <icon v-if="rightArrowVisble(item)" name="right" class="icon"></icon>
+        <span class="icons">
+          <template v-if="item.name === loadingItem.name">
+            <icon name="loading" class="loading"></icon>
+          </template>
+          <template v-else>
+            <icon v-if="rightArrowVisble(item)" name="right" class="next"></icon>
+          </template>
+        </span>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <gulu-cascader-items :items="rightItems" :height="height" :selected="selected" :level="level+1" @update:selected="onUpdateSelected"></gulu-cascader-items>
+      <gulu-cascader-items :items="rightItems" :height="height" :selected="selected" :level="level+1" :load-data="loadData" :loading-item="loadingItem" @update:selected="onUpdateSelected"></gulu-cascader-items>
     </div>
   </div>
 </template>
@@ -36,6 +43,10 @@ export default {
     },
     loadData: {
       type: Function
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({})
     }
   },
   computed: {
@@ -101,9 +112,14 @@ export default {
       margin-right: 1em;
       user-select: none;
     }
-    .icon {
+    .icons {
       margin-left: auto;
-      transform: scale(0.5);
+      .next {
+        transform: scale(0.5);
+      }
+      .loading {
+        animation: spin 2s infinite linear;
+      }
     }
   }
 }
