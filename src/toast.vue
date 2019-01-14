@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" :class="toastClasses">
+  <div class="gulu-toast" :class="toastClasses">
     <div class="toast" ref="toast">
       <div class="message">
         <slot v-if="!enableHtml"></slot>
@@ -117,7 +117,7 @@ $animation-duration: 300ms;
     opacity: 1;
   }
 }
-.wrapper {
+.gulu-toast {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);

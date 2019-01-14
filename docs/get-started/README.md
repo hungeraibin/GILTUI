@@ -8,15 +8,7 @@ title: '快速上手'
 
 ## 安装
 
-```bash
-npm install GULU
-```
-
-或
-
-```bash
-yarn add GULU 
-```
+请参考 [安装](../install/) 章节
 
 ## Hello World
 

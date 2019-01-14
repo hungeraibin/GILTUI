@@ -30,7 +30,7 @@
           <div>
             value: {{value}}
           </div>
-      `.replace(/ {8}/g, '').trim()
+      `.replace(/^ {8}/gm, '').trim()
       }
     }
   }
