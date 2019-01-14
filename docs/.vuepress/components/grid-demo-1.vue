@@ -20,8 +20,6 @@
   * {
     box-sizing: border-box;
   }
-  .demoRow{
-  }
   .demoCol {
     height: 50px;
     border: 1px solid #ccc;
