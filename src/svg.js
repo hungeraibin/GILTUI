@@ -5,6 +5,9 @@
     var scripts = document.getElementsByTagName("script");
     return scripts[scripts.length - 1];
   })();
+  if (!script) {
+    return;
+  }
   var shouldInjectCss = script.getAttribute("data-injectcss");
   var ready = function(fn) {
     if (document.addEventListener) {
@@ -20,6 +23,7 @@
     } else if (document.attachEvent) {
       IEContentLoaded(window, fn);
     }
+
     function IEContentLoaded(w, fn) {
       var d = w.document,
         done = false,
@@ -57,6 +61,7 @@
       target.appendChild(el);
     }
   };
+
   function appendSvg() {
     var div, svg;
     div = document.createElement("div");
@@ -72,6 +77,7 @@
       prepend(svg, document.body);
     }
   }
+
   if (shouldInjectCss && !window.__iconfont__svg__cssinject__) {
     window.__iconfont__svg__cssinject__ = true;
     try {
