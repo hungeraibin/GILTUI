@@ -1,5 +1,5 @@
 <template>
-  <div class="sider">
+  <div class="sider" v-if="visible">
     <slot></slot>
   </div>
 </template>
