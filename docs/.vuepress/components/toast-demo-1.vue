@@ -29,7 +29,7 @@
 </style>
 <script>
   import plugin from '../../../src/plugin'
-  import GButton from '../../../src/button'
+  import GButton from '../../../src/button/button'
   import Vue from 'vue'
   Vue.use(plugin)
   export default {

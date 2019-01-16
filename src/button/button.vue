@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Icon from "./icon";
+import Icon from "../icon";
 
 export default {
   name: "GuLuButton", // 用于调试
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "var";
+@import "../var"; // webpack 配置 scss 根目录
 
 .g-button {
   display: inline-flex;
