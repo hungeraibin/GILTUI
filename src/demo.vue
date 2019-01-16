@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 20px">
-    <g-slides :selected="selected">
+    <g-slides :selected.sync="selected">
       <g-sildes-item name="1">
         <div class="box">1</div>
       </g-sildes-item>
@@ -26,18 +26,8 @@ export default {
   },
   data() {
     return {
-      selected: "1"
+      selected: "3"
     };
-  },
-  created() {
-    let n = 1;
-    setInterval(() => {
-      if (n === 4) {
-        n = 1;
-      }
-      this.selected = n.toString();
-      n++;
-    }, 2000);
   }
 };
 </script>
