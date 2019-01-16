@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      selected: "3"
+      selected: undefined
     };
   }
 };
@@ -45,9 +45,12 @@ body {
   font-size: var(--font-size);
 }
 .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 150px;
   background: #ddd;
-  border: 1px solid red;
+  font-size: 30px;
 }
 </style>

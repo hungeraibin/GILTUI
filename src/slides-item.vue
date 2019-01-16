@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .slide-leave-active {
   position: absolute;
@@ -48,9 +48,9 @@ export default {
   transform: translateX(-100%);
 }
 .slide-leave-to {
-  transform: translateX(-100%) scale(0.5);
+  transform: translateX(-100%);
 }
 .slide-leave-to.reverse {
-  transform: translateX(100%) scale(0.5);
+  transform: translateX(100%);
 }
 </style>
