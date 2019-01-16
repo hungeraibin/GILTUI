@@ -1,18 +1,24 @@
 <template>
-  <div class="g-slides" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onTouchEnd">
+  <div class="g-slides" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" @touchstart="onTouchStart" @touchend="onTouchEnd">
     <div class="g-slides-window">
       <slot></slot>
     </div>
     <div class="g-slides-dots">
-      <span v-for="n in childrenLength" :key="n" :class="{active: selectedIndex === n-1}" @click="select(n-1)">
+      <span @click="onClickPrev" data-action="prev"><g-icon name="left"></g-icon></span>
+      <span v-for="n in childrenLength" :key="n" :class="{active: selectedIndex === n-1}" :data-index="n-1" @click="select(n-1)">
         {{ n-1 }}
       </span>
+      <span @click="onClickNext" data-action="next"><g-icon name="right"></g-icon></span>
     </div>
   </div>
 </template>
 
 <script>
+import Icon from "./icon";
 export default {
+  components: {
+    "g-icon": Icon
+  },
   props: {
     selected: {
       type: String
@@ -20,6 +26,10 @@ export default {
     autoPlay: {
       type: Boolean,
       default: true
+    },
+    autoPlayDelay: {
+      type: Number,
+      default: 3000
     }
   },
   data() {
@@ -36,13 +46,20 @@ export default {
       return index === -1 ? 0 : index;
     },
     names() {
-      return this.$children.map(vm => vm.name);
+      return this.items.map(vm => vm.name);
+    },
+    items() {
+      return this.$children.filter(vm => {
+        return vm.$options.name === "GuluSlidesItem";
+      });
     }
   },
   mounted() {
     this.updateChildren();
-    this.playAutomatically();
-    this.childrenLength = this.$children.length;
+    if (this.autoPlay) {
+      this.playAutomatically();
+    }
+    this.childrenLength = this.items.length;
   },
   updated() {
     this.updateChildren();
@@ -52,18 +69,16 @@ export default {
       this.pause();
     },
     onMouseLeave() {
-      this.playAutomatically();
+      if (this.autoPlay) {
+        this.playAutomatically();
+      }
     },
     onTouchStart(e) {
-      this.pause();
       if (e.touches.length > 1) {
         return;
       }
+      this.pause();
       this.startTouch = e.touches[0];
-      console.log("start", this.startTouch);
-    },
-    onTouchMove() {
-      console.log("move");
     },
     onTouchEnd(e) {
       let endTouch = e.changedTouches[0];
@@ -83,17 +98,22 @@ export default {
         this.playAutomatically();
       });
     },
+    onClickPrev() {
+      this.select(this.selectedIndex - 1);
+    },
+    onClickNext() {
+      this.select(this.selectedIndex + 1);
+    },
     playAutomatically() {
       if (this.timerId) {
         return;
       }
       let run = () => {
-        let index = this.names.indexOf(this.selected);
-        let newIndex = index - 1;
+        let newIndex = this.selectedIndex + 1;
         this.select(newIndex);
-        this.timerId = setTimeout(run, 2000);
+        this.timerId = setTimeout(run, this.autoPlayDelay);
       };
-      this.timerId = setTimeout(run, 2000);
+      this.timerId = setTimeout(run, this.autoPlayDelay);
     },
     pause() {
       window.clearTimeout(this.timerId);
@@ -110,24 +130,24 @@ export default {
       this.$emit("update:selected", this.names[newIndex]);
     },
     getSelected() {
-      let first = this.$children[0];
+      let first = this.items[0];
       return this.selected || first.name;
     },
     updateChildren() {
       let selected = this.getSelected();
-      this.$children.forEach(vm => {
+      this.items.forEach(vm => {
         let reverse =
           this.selectedIndex > this.lastSelectedIndex ? false : true;
         if (this.timerId) {
           if (
-            this.lastSelectedIndex === this.$children.length - 1 &&
+            this.lastSelectedIndex === this.items.length - 1 &&
             this.selectedIndex === 0
           ) {
             reverse = false;
           }
           if (
             this.lastSelectedIndex === 0 &&
-            this.selectedIndex === this.$children.length - 1
+            this.selectedIndex === this.items.length - 1
           ) {
             reverse = true;
           }
