@@ -45,7 +45,7 @@ body {
   font-size: var(--font-size);
 }
 .box {
-  width: 200px;
+  width: 100%;
   height: 150px;
   background: #ddd;
   border: 1px solid red;

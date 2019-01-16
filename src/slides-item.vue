@@ -38,6 +38,8 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
 }
 .slide-enter {
   transform: translateX(100%);
@@ -46,9 +48,9 @@ export default {
   transform: translateX(-100%);
 }
 .slide-leave-to {
-  transform: translateX(-100%);
+  transform: translateX(-100%) scale(0.5);
 }
 .slide-leave-to.reverse {
-  transform: translateX(100%);
+  transform: translateX(100%) scale(0.5);
 }
 </style>
