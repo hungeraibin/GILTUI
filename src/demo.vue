@@ -1,32 +1,28 @@
 <template>
   <div style="padding: 20px">
-    <g-slides :selected.sync="selected">
-      <g-sildes-item name="1">
-        <div class="box">1</div>
-      </g-sildes-item>
-      <g-sildes-item name="2">
-        <div class="box">2</div>
-      </g-sildes-item>      
-      <g-sildes-item name="3">
-        <div class="box">3</div>
-      </g-sildes-item>
-    </g-slides>
+    <g-nav :selected.sync="selected">
+      <g-nav-item name="home">首页</g-nav-item>
+      <g-nav-item name="about">关于</g-nav-item>
+      <g-nav-item name="hire">招聘</g-nav-item>
+    </g-nav>
   </div>
 </template>
 
 <script>
-import Slides from "./slides/slides";
-import SlidesItem from "./slides/slides-item";
+import GNav from "./nav/nav";
+import GNavItem from "./nav/nav-item";
+import GSubNav from "./nav/sub-nav";
 
 export default {
   name: "demo",
   components: {
-    "g-slides": Slides,
-    "g-sildes-item": SlidesItem
+    GNav,
+    GNavItem,
+    GSubNav
   },
   data() {
     return {
-      selected: "1"
+      selected: ["home"]
     };
   }
 };
