@@ -19,13 +19,15 @@ export default {
   },
   methods: {
     onClick() {
-      this.open = true;
+      this.open = !this.open;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+@import "var";
+
 .g-sub-nav {
   position: relative;
   > span {
@@ -36,8 +38,14 @@ export default {
     position: absolute;
     top: 100%;
     left: 0;
-    border: 1px solid black;
+    margin-top: 1px;
     white-space: nowrap;
+    background: white;
+    box-shadow: 0 0 3px fade-out(black, 0.8);
+    border-radius: $border-radius;
+    color: $light-color;
+    font-size: $font-size;
+    min-width: 6em;
   }
   .g-sub-nav .g-sub-nav-popover {
     top: 0;
