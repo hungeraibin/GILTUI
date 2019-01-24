@@ -4,7 +4,6 @@ let onClickDocument = e => {
     if (target === item.el || item.el.contains(target)) {
       return;
     } else {
-      console.log("close");
       item.callback();
     }
   });
