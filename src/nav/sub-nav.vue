@@ -1,8 +1,8 @@
 <template>
-  <div class="g-sub-nav" :class="{active}" v-click-outside="close">
+  <div class="g-sub-nav" :class="{active, vertical}" v-click-outside="close">
     <span class="g-sub-nav-label" @click="onClick">
       <slot name="title"></slot>
-      <span class="g-sub-nav-icon" :class="{open}">
+      <span class="g-sub-nav-icon" :class="{open, vertical}">
         <g-icon name="right"></g-icon>
       </span>
     </span>
@@ -67,7 +67,6 @@ export default {
       el.addEventListener("transitionend", () => {
         done();
       });
-      done();
     },
     afterLeave(el) {
       el.style.height = "auto";
@@ -92,15 +91,17 @@ export default {
 @import "var";
 .g-sub-nav {
   position: relative;
-  &.active {
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      border-bottom: 2px solid $blue;
+  &:not(.vertical) {
+    &.active {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid $blue;
+      }
     }
   }
   &-label {
@@ -148,6 +149,12 @@ export default {
       margin-left: 1em;
       svg {
         fill: $light-color;
+      }
+      &.vertical {
+        transform: rotate(90deg);
+        &.open {
+          transform: rotate(270deg);
+        }
       }
       &.open {
         transform: rotate(180deg);
