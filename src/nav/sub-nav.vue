@@ -6,9 +6,11 @@
         <g-icon name="right"></g-icon>
       </span>
     </span>
-    <div class="g-sub-nav-popover" v-show="open">
-      <slot></slot>
-    </div>
+    <transition name="x" @enter="enter" @leave="leave" @after-leave="afterLeave" @after-enter="afterEnter">
+      <div class="g-sub-nav-popover" v-show="open" :class="{vertical}">
+        <slot></slot>
+      </div>
+    </transition>
   </div>  
 </template>
 
@@ -19,7 +21,7 @@ import GIcon from "../icon";
 export default {
   name: "guluSubNav",
   components: { GIcon },
-  inject: ["root"],
+  inject: ["root", "vertical"],
   directives: { ClickOutside },
   props: {
     name: {
@@ -38,6 +40,31 @@ export default {
     }
   },
   methods: {
+    enter(el, done) {
+      let { height } = el.getBoundingClientRect();
+      el.style.height = 0;
+      el.getBoundingClientRect();
+      el.style.height = `${height}px`;
+      el.addEventListener("transitionend", () => {
+        done();
+      });
+    },
+    afterEnter(el) {
+      el.style.height = "auto";
+    },
+    leave(el, done) {
+      let { height } = el.getBoundingClientRect();
+      el.style.height = `${height}px`;
+      el.getBoundingClientRect();
+      el.style.height = 0;
+      el.addEventListener("transitionend", () => {
+        done();
+      });
+      done();
+    },
+    afterLeave(el) {
+      el.style.height = "auto";
+    },
     onClick() {
       this.open = !this.open;
     },
@@ -56,7 +83,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "var";
-
 .g-sub-nav {
   position: relative;
   &.active {
@@ -89,6 +115,14 @@ export default {
     color: $light-color;
     font-size: $font-size;
     min-width: 6em;
+    &.vertical {
+      position: static;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      transition: height 250ms;
+      overflow: hidden;
+    }
   }
   .g-sub-nav {
     .g-sub-nav-popover {
