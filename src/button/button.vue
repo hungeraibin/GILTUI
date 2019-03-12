@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "var"; // webpack 配置 scss 根目录
+@import "../../styles/_var.scss"; // webpack 配置 scss 根目录
 
 .g-button {
   display: inline-flex;
