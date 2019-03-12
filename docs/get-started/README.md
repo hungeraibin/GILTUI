@@ -13,7 +13,7 @@ title: '快速上手'
 ## Hello World
 
 ```javascript
-import {Button} from 'GULU'
+import {Button} from 'GILTUI'
 import Vue from 'vue'
 new Vue({
   el: '#app',

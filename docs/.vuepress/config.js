@@ -1,6 +1,6 @@
 module.exports = {
-  base: '/GULU/',
-  title: '轱辘UI',
+  base: '/GiltUI/',
+  title: '小母猪UI',
   description: 'Vue UI 框架',
   themeConfig: {
     nav: [

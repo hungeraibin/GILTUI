@@ -1,6 +1,6 @@
 # Gilt UI
 
-[小母猪UI框架官方文档](https://hungeraibin.github.io/GULU/)
+[小母猪UI框架官方文档](https://hungeraibin.github.io/GiltUI/)
 
 1. 安装依赖
 ```

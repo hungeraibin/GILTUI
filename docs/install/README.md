@@ -5,11 +5,11 @@ title: '安装'
 # 安装
 
 ```bash
-npm install GULU
+npm install GILTUI
 ```
 
 或
 
 ```bash
-yarn add GULU
+yarn add GILTUI
 ```
