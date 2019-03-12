@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/GiltUI/',
+  base: '/GILTUI/',
   title: '小母猪UI',
   description: 'Vue UI 框架',
   themeConfig: {
