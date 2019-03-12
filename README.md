@@ -1,13 +1,13 @@
-# 轱辘 UI
+# Gilt UI
 
-[官方文档](https://hungeraibin.github.io/GULU/)
+[小母猪UI框架官方文档](https://hungeraibin.github.io/GULU/)
 
 1. 安装依赖
 ```
-yarn install
+npm install
 ```
 
 2. 启动 dev server
 ```
-yarn serve
+npm run serve
 ```
