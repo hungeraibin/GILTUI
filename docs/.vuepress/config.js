@@ -28,9 +28,12 @@ module.exports = {
           '/components/toast',
           '/components/tabs',
           '/components/popover',
+          '/components/slides',
         ]
       }
     ]
   },
-
+  scss:{
+    includePaths: [path.join(__dirname, '../../styles')]
+  }
 }
