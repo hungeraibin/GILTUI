@@ -32,8 +32,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  scss:{
-    includePaths: [path.join(__dirname, '../../styles')]
   }
 }
