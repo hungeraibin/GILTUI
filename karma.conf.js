@@ -14,6 +14,8 @@ module.exports = function(config) {
 
     reporters: ["spec"],
 
+    autoWatch: true,
+
     browsers: ["ChromeHeadless"]
   });
 };

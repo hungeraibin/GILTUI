@@ -1,6 +1,6 @@
 module.exports = {
   base: '/GILTUI/',
-  title: '小母猪UI',
+  title: 'GILTUI',
   description: 'Vue UI 框架',
   themeConfig: {
     nav: [
