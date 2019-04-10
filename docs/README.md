@@ -1,4 +1,4 @@
-# GILT UI （小母猪UI框架）
+# GILT UI
 
 本 UI 框架是基于 Vue 2 实现的，是我对Vue的学习理解成果。
 
