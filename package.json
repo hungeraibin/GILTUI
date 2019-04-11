@@ -1,10 +1,11 @@
 {
   "name": "gilt-ui",
-  "version": "0.1.2",
+  "version": "1.0.0",
+  "main": "dist/gilt.umd.min.js",
   "description": "这是一个UI框架",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name gilt src/index.js",
     "lint": "vue-cli-service lint",
     "test": "karma start --single-run",
     "test:unit": "vue-cli-service test:unit",
