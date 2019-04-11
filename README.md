@@ -2,7 +2,6 @@
 
 ## 1. [GILTUI UI框架官方文档](https://hungeraibin.github.io/GILTUI/)
 - 此项目是是我对VUE学习过程中的总结和成果，欢迎大家积极参与讨论
-- 
 
 ## 2. 项目简介
 - GILTUI 是基于VUE2.0的UI框架，提供一些常用的基本轮子组件，
