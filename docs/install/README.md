@@ -5,11 +5,11 @@ title: '安装'
 # 安装
 
 ```bash
-npm install GILTUI
+npm install gilt
 ```
 
 或
 
 ```bash
-yarn add GILTUI
+yarn add gilt
 ```

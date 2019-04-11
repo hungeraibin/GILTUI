@@ -2,7 +2,7 @@
 title: Toast
 ---
 
-# Toast
+# 消息提示
 
 <ClientOnly>
   <toast-demo-1></toast-demo-1>

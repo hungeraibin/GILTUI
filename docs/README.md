@@ -1,10 +1,49 @@
-# GILT UI
+# GILTUI UI
 
-本 UI 框架是基于 Vue 2 实现的，是我对Vue的学习理解成果。
+## 1. 项目初衷
+- 此项目是是我对VUE学习过程中的总结和成果，欢迎大家积极参与讨论
 
-## 项目特点
+## 2. 项目简介
+- GILTUI 是基于VUE2.0的UI框架，提供一些常用的基本轮子组件，
+- 组件设计学习参考ElementUI、Ant Design的设计，提供舒服的使用方法
+- 初期使用Parcel构建打包，后期改用vue-cli3重新搭建项目
+- 尝试学习并使用Chai、Mocha、Karma进行单元测试，部分更新为Vue Test Utils
+- 尝试学习并使用Travis CI进行持续集成
+- 尝试学习并使用VuePress编写友好的文档
 
-1. 使用 Travis CI 进行持续集成
-2. 有丰富的单元测试，项目完成时，期望测试覆盖率超过 90%
-3. 自说明的代码，即使没有注释，你也能看懂
-4. 初期使用 parcel 构建，后期改为 Vue Cli 3 以实现更多功能
+## 3. 使用项目
+```
+npm install --save-dev gilt
+```
+
+```js
+import {Button} from 'gilt'
+import Vue from 'vue'
+new Vue({
+  el: '#app',
+  components: {
+    'g-button': Button
+  }
+})
+```
+
+## 4. 查看源码
+- 下载项目
+```bash
+git clone git@github.com:hungeraibin/GILTUI.git
+```
+
+- 安装依赖
+```bash
+npm install
+```
+
+- 启动服务
+```bash
+npm run serve
+```
+
+## 5. 联系我们 
+- email：hungeraibin@gmail.com
+- QQ：1149299088
+- 微信：AI_Bin_W
