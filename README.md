@@ -11,7 +11,7 @@
 - 尝试学习并使用Travis CI进行持续集成
 - 尝试学习并使用VuePress编写友好的文档
 
-## 4. 使用项目
+## 3. 使用项目
 ```
 npm install --save-dev gilt-ui
 ```
@@ -27,7 +27,7 @@ new Vue({
 })
 ```
 
-## 5. 查看源码
+## 4. 查看源码
 - 下载项目
 ```bash
 git clone git@github.com:hungeraibin/GILTUI.git
@@ -43,7 +43,7 @@ npm install
 npm run serve
 ```
 
-## 6. 联系我们 
+## 5. 联系我们 
 - email：hungeraibin@gmail.com
 - QQ：1149299088
 - 微信：AI_Bin_W
