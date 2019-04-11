@@ -13,11 +13,11 @@
 
 ## 3. 使用项目
 ```
-npm install --save-dev gilt
+npm install --save-dev gilt-ui
 ```
 
 ```js
-import {Button} from 'gilt'
+import {Button} from 'gilt-ui'
 import Vue from 'vue'
 new Vue({
   el: '#app',
