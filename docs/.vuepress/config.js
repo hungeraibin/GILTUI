@@ -29,6 +29,7 @@ module.exports = {
           '/components/tabs',
           '/components/popover',
           '/components/slides',
+          '/components/pager',
         ]
       }
     ]

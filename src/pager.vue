@@ -91,7 +91,7 @@ function unique(array) {
 </script>
 
 <style scoped lang="scss">
-@import "var";
+@import "../styles/_var.scss";
 .gulu-pager {
   display: flex;
   justify-content: flex-start;
